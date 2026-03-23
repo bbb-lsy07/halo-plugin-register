@@ -1,9 +1,9 @@
 name: CD
 
 on:
-  release:
-    types:
-      - published
+  push:
+    tags:
+      - 'v*' # 当你推送 v1.0.2 这样的标签时触发
 
 jobs:
   cd:
@@ -14,4 +14,5 @@ jobs:
       pnpm-version: 9
       node-version: 22
       java-version: 21
+      # 确保这里为 false 或者删除，以便它能处理 Release 附件
       skip-appstore-release: true
